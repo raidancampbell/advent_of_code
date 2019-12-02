@@ -18,6 +18,17 @@
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:0055ac89d894e96310bc9ea0193fd97eaa09ba7cf57fb7e2581045c7a58ff37e"
+  name = "github.com/raidancampbell/libraidan"
+  packages = [
+    "pkg/rmath",
+    "pkg/rstrings",
+  ]
+  pruneopts = "UT"
+  revision = "d0cdae7775a52caa8ab5d97b054fc71d516c09ce"
+  version = "v0.2.0"
+
+[[projects]]
   digest = "1:8548c309c65a85933a625be5e7d52b6ac927ca30c56869fae58123b8a77a75e1"
   name = "github.com/stretchr/testify"
   packages = ["assert"]
@@ -36,6 +47,10 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/stretchr/testify/assert"]
+  input-imports = [
+    "github.com/raidancampbell/libraidan/pkg/rmath",
+    "github.com/raidancampbell/libraidan/pkg/rstrings",
+    "github.com/stretchr/testify/assert",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"os"
+	"github.com/raidancampbell/libraidan/pkg/rmath"
+	"github.com/raidancampbell/libraidan/pkg/rstrings"
 	"strconv"
 	"strings"
 )
 
 // Main function
 func main() {
-	str, err := FileToString("2019/day1/input")
+	str, err := rstrings.FileToString("2019/day1/input")
 	if err != nil {
 		fmt.Printf("Error encountered reading file.  Ensure working directory is repository root: %v\n", err)
 	}
@@ -35,31 +35,9 @@ func calcFuel(size int) int {
 
 func calcFuel2(size, acc int) int {
 	for size > 0 {
-		f := calcFuel(size)
-		if f < 0 {
-			f = 0
-		}
+		f := rmath.Max(calcFuel(size), 0)
 		acc += f
 		return calcFuel2(f, acc)
 	}
 	return acc
-}
-
-
-
-func FileToString(fname string) (result string, err error) {
-	file, err := os.Open(fname)
-	if err != nil {
-		return
-	}
-
-	b, err := ioutil.ReadAll(file)
-
-	if err != nil {
-		return
-	}
-	err = file.Close()
-
-	result = string(b)
-	return
 }
