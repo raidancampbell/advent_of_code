@@ -1,3 +1,14 @@
+def has_pair_of_pairs(input_string=""):
+    pairs = []
+    last_char = ''
+    current_char = ''
+    for character in input_string:
+        last_char = current_char
+        current_char = character
+        if not last_char:
+            continue  # we're on the first iteration. we don't have a pair yet.
+
+
 strings = open("input", "r").readlines()
 nice_strings = 0
 for string in strings:
